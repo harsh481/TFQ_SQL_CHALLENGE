@@ -29,4 +29,32 @@ INSERT INTO brands VALUES ('samsung', 'apple', 2021, 5, 3, 1, 2);
 INSERT INTO brands VALUES ('google', NULL, 2020, 5, 9, NULL, NULL);
 INSERT INTO brands VALUES ('oneplus', 'nothing', 2020, 5, 9, 6, 3);
 
-SELECT * FROM brands;
+/*Solution*/
+
+select 
+distinct
+case when brand1 is not null and brand1 > brand2 then brand1
+     when brand1 is not null and brand1 < brand2 then brand2
+     else brand1 end as brand1,
+case when brand2 is not null and brand1 > brand2 then brand2
+     when brand1 is not null and brand1 < brand2 then brand1
+     else brand2 end as brand2,
+year,
+case when custom1 is not null and custom1 > custom3 then custom1
+	when custom1 is not null and custom1  < custom3 then custom3
+     else custom1 end as custom1,
+     
+case when custom2 is not null and custom2 > custom4 then custom2
+	when custom2 is not null and custom2  < custom4 then custom4
+     else custom2 end as custom2,
+     
+case when custom3 is not null and custom1 > custom3 then custom1
+	when custom1 is not null  and custom1  < custom3 then custom3
+     else custom3 end as custom3,
+     
+case when custom4 is not null and custom2 > custom4 then custom2
+	when custom4 is not null  and custom2  < custom4 then custom4
+     else custom4 end as custom4
+     
+from brands
+
