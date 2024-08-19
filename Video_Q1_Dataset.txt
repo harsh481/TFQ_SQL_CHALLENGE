@@ -58,3 +58,4 @@ case when custom4 is not null and custom2 > custom4 then custom2
      
 from brands
 
+## This is the test for now
